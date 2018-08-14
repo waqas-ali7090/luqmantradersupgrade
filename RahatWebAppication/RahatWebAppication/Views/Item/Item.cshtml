@@ -1,0 +1,79 @@
+﻿@model RahatWebAppication.ViewModels.ItemViewModel
+@{
+    ViewBag.Title = "Item";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="log-reg-v3 margin-bottom-30">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
+            <div class="text-center">
+                @{
+                    if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>@TempData["Message"]
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="log-reg-block sky-form" id="sky-form4" novalidate="novalidate">
+
+                    <h2>Products</h2>
+                    <div class="login-input reg-input">
+                        <div class="row">
+                            <div class="col-md-3" style="margin-left: 10px">
+                                <input id="tableSearch" type="text" name="search" class="form-control" placeholder="Enter text to search"/>
+                            </div>
+                            <div class="text-right" style="margin-right: 25px">
+                                <button onclick="location.href = '@Url.Action("CreateItem", "Item")'" class="circle btn-u btn-u-sea-shop margin-top-5" type="button"><i class="fa fa-plus"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <div class="items">
+                            <div class="item title">
+                                <table id='items' class="table table-hover table-responsive dataTable dt-responsive">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            <strong>Image</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Name</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Price</strong>
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach (var item in Model.Items)
+                                    {
+                                        <tr>
+                                            <td><img src="@Url.Content(item.Photo)" class="img-circle img-thumbnail" style="width: 35px; height: 35px"/></td>
+                                            <td>@Html.DisplayFor(m => item.Name)</td>
+                                            <td>@Html.DisplayFor(m => item.Price)</td>
+                                            <td class="text-right">
+                                                <button title="Edit" onclick="location.href = '@Url.Action("EditItem", "Item", new {id = item.Id})'" class="btn btn-success" type="button"><i class="fa fa-edit"></i></button>
+                                                <button title="Delete" onclick="location.href = '@Url.Action("DeleteItem", "Item", new {id = item.Id})'" class="btn btn-danger" type="button"><i class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                    }
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

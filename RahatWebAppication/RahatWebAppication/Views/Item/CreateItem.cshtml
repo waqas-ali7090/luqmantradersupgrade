@@ -1,0 +1,100 @@
+﻿@model RahatWebAppication.ViewModels.ItemViewModel
+@{
+    ViewBag.Title = "CreateItem";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="log-reg-v3 margin-bottom-30">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
+            <div class="text-center">
+                @{
+                    if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>@TempData["Message"]
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @using (@Html.BeginForm("CreateItem", "Item", FormMethod.Post, new {@class = "log-reg-block sky-form", id = "sky-form4", enctype = "multipart/form-data"}))
+                {
+                    <h2>Add Product</h2>
+                    <div class="login-input reg-input">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <section>
+                                    <label class="input">
+                                        @Html.TextBoxFor(m => m.Item.ImageUpload, new {@type = "file", @id = "file-demo", @class = "file form-control", @data_preview_file_type = "any"})
+                                        @Html.ValidationMessageFor(m => m.Item.ImageUpload, "", new {@class = "color-red"})
+                                        <br/>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <section>
+                                    <label class="input">
+                                        @Html.TextBoxFor(m => m.Item.Name, new {@class = "form-control"})
+                                        @Html.ValidationMessageFor(m => m.Item.Name, "", new {@class = "color-red"})
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="col-sm-6">
+                                <section>
+                                    <label class="input">
+                                        @Html.TextBoxFor(m => m.Item.Price, new {@class = "form-control"})
+                                        @Html.ValidationMessageFor(m => m.Item.Price, "", new {@class = "color-red"})
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <section>
+                                    <label class="input">
+                                        @Html.DropDownListFor(m => m.Item.CategoryId, new SelectList(Model.ItemCategories, "Id", "Name"), "Select Item Category", new {@class = "form-control"})
+                                        @Html.ValidationMessageFor(m => m.Item.CategoryId, "", new {@class = "color-red"})
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="col-sm-6">
+                                <section>
+                                    <label class="input">
+                                        @Html.TextBoxFor(m => m.Item.Discount, new {@class = "form-control"})
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <section>
+                                    <label class="input">
+                                        @Html.TextAreaFor(m => m.Item.Description, new {@class = "form-control"})
+                                        @Html.ValidationMessageFor(m => m.Item.Description, "", new {@class = "color-red"})
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+
+                        <div class="row margin-bottom-5">
+                            <div class="col-xs-6">
+                                <label style="display: -webkit-inline-box">
+                                    @Html.CheckBoxFor(m => m.Item.IsLatest, new {@checked = false, @name = "checkbox", @class = "form-control"})
+                                    Latest?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-u btn-u-sea-shop btn-block margin-bottom-20" type="submit">Save</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

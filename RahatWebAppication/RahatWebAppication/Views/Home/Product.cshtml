@@ -1,0 +1,160 @@
+﻿@model RahatWebAppication.ViewModels.ItemViewModel
+<div class="content container">
+    <div class="row">
+        <div class="col-md-3 filter-by-block md-margin-bottom-60">
+            <h1>Filter By</h1>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                Categories
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="list-unstyled checkbox-list">
+                                @foreach (var category in Model.ItemCategories)
+                                {
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" id="checkbox_@category.Id" onchange="searchItemByCategory(@category.Id)" />
+                                        <i></i>
+                                        @category.Name
+                                        <small><a href="#">(@category.Items.Count())</a></small>
+                                    </label>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group" id="accordion-v4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-v4" href="#collapseFour">
+                                Price
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="slider-snap"></div>
+                            <p class="slider-snap-text">
+                                <span class="slider-snap-value-lower"></span>
+                                <span class="slider-snap-value-upper"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn-u btn-brd btn-brd-hover btn-u-lg btn-u-sea-shop btn-block">Reset</button>
+        </div>
+        @if (Model.Items != null && Model.Items.Count() != 0)
+        {
+            <div class="col-md-9">
+                <div class="row margin-bottom-5">
+                    <div class="col-sm-6 result-category">
+                        <h2>Total Products</h2>
+                        <small class="shop-bg-red badge-results">@Model.Items.Count() Results</small>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul class="list-inline clear-both">
+                            <li class="grid-list-icons">
+                                <a><i class="fa fa-th-list"></i></a>
+                                @*<a href="shop-ui-filter-grid.html"><i class="fa fa-th"></i></a>*@
+                            </li>
+                            <li class="sort-list-btn">
+                                <h3>Show :</h3>
+                                <div class="btn-group">
+                                    <select class="form-control" onchange="getProductsOnSelect(this)">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filter-results">
+                    <div id="displayProducts">
+                        @foreach (var item in Model.Items)
+                        {
+                            <div class="list-product-description product-description-brd margin-bottom-30">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href="@Url.Content(item.Photo)" class="fancybox" onclick="makeImageFancy()">
+                                            <img class="img-responsive sm-margin-bottom-20" src="@Url.Content(item.Photo)" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-8 product-description">
+                                        <div class="overflow-h margin-bottom-5">
+                                            <ul class="list-inline overflow-h">
+                                                <li><h4 class="title-price"><a href="">@item.Name</a></h4></li>
+                                                <li><span class="gender text-uppercase">@item.ItemCategory.Name</span></li>
+                                                <li class="pull-right">
+                                                    <ul class="list-inline product-ratings">
+                                                        <li><i class="rating-selected fa fa-star"></i></li>
+                                                        <li><i class="rating-selected fa fa-star"></i></li>
+                                                        <li><i class="rating-selected fa fa-star"></i></li>
+                                                        <li><i class="rating fa fa-star"></i></li>
+                                                        <li><i class="rating fa fa-star"></i></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <div class="margin-bottom-10">
+                                                <span class="title-price margin-right-10">Rs: @Convert.ToInt32(item.Price)</span>
+                                                @if (item.PreviousPrice != 0)
+                                                {
+                                                    <span class="title-price line-through">Rs: @Convert.ToInt32(item.PreviousPrice)</span>
+                                                }
+                                            </div>
+                                            <p class="margin-bottom-20">@item.Description</p>
+                                            @*<ul class="list-inline add-to-wishlist margin-bottom-20">
+                                                    <li class="wishlist-in">
+                                                        <i class="fa fa-heart"></i>
+                                                        <a href="#">Add to Wishlist</a>
+                                                    </li>
+                                                    <li class="compare-in">
+                                                        <i class="fa fa-exchange"></i>
+                                                        <a href="#">Add to Compare</a>
+                                                    </li>
+                                                </ul>
+                                                <button type="button" class="btn-u btn-u-sea-shop">Add to Cart</button>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <ul class="pagination pagination-v2">
+                        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                        <li><a href="#">1</a></li>
+                        <li class="active"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        }
+        @if (Model.Items == null || !Model.Items.Any())
+        {
+            <div class="col-md-9">
+                <div class="filter-by-block col-md-12 padding-leftright30">
+                    <h1>No Products found!!!</h1>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Application</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="~/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/shop.style.css">
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="~/Content/css/headers/header-v5.css">
+    <link rel="stylesheet" href="~/Content/css/footers/footer-v4.css">
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="~/plugins/animate.css">
+    <link rel="stylesheet" href="~/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="~/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/plugins/noUiSlider/jquery.nouislider.min.css">
+    <link rel="stylesheet" href="~/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+    @* index page *@
+    <link href="~/plugins/owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link href="~/plugins/revolution-slider/rs-plugin/css/settings.css" rel="stylesheet" />
+
+    @* about page *@
+    <link rel="stylesheet" href="~/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+    <link rel="stylesheet" href="~/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+    <link rel="stylesheet" href="~/plugins/master-slider/masterslider/style/masterslider.css">
+    <link rel='stylesheet' href="~/plugins/master-slider/masterslider/skins/default/style.css">
+
+    @* contact page *@
+    <link rel="stylesheet" href="~/Content/css/pages/log-reg-v3.css">
+
+    @* product page *@
+    <link href="~/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+    <!-- Style Switcher -->
+    <link rel="stylesheet" href="~/Content/css/plugins/style-switcher.css">
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="~/Content/css/theme-colors/default.css" id="style_color">
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="~/Content/css/custom.css">
+
+</head>
+<body class="header-fixed">
+    <div class="wrapper">
+        <!--=== Header v5 ===-->
+        <div class="header-v5 header-static">
+            <!-- Navbar -->
+            <div class="navbar navbar-default mega-menu" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                            <img id="logo-header" src="~/Images/img/logo1.png" alt="Logo">
+                        </a>
+                    </div>
+                    <!-- Shopping Cart -->
+                    <div class="shop-badge badge-icons pull-right">
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                        <span class="badge badge-sea rounded-x">3</span>
+                        <div class="badge-open">
+                            <ul class="list-unstyled mCustomScrollbar" data-mcs-theme="minimal-dark">
+                                <li>
+                                    <img src="~/Images/img/thumb/05.jpg" alt="">
+                                    <button type="button" class="close">×</button>
+                                    <div class="overflow-h">
+                                        <span>Black Glasses</span>
+                                        <small>1 x $400.00</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="~/Images/img/thumb/02.jpg" alt="">
+                                    <button type="button" class="close">×</button>
+                                    <div class="overflow-h">
+                                        <span>Black Glasses</span>
+                                        <small>1 x $400.00</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="~/Images/img/thumb/03.jpg" alt="">
+                                    <button type="button" class="close">×</button>
+                                    <div class="overflow-h">
+                                        <span>Black Glasses</span>
+                                        <small>1 x $400.00</small>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="subtotal">
+                                <div class="overflow-h margin-bottom-10">
+                                    <span>Subtotal</span>
+                                    <span class="pull-right subtotal-cost">$1200.00</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <a class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">View Cart</a>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a class="btn-u btn-u-sea-shop btn-block">Checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Shopping Cart -->
+                    <div class="collapse navbar-collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="@(@HttpContext.Current.Session["menu"].ToString() == "HOME" ? "active" : "")">
+                                <a href="@Url.Action("Index","Home")">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="@(@HttpContext.Current.Session["menu"].ToString() == "ABOUT" ? "active" : "")">
+                                <a href="@Url.Action("About","Home")">
+                                    About
+                                </a>
+                            </li>
+                            <li class="@(@HttpContext.Current.Session["menu"].ToString() == "PRODUCT" ? "active" : "")">
+                                <a href="@Url.Action("Product","Home")">
+                                    Products
+                                </a>
+                            </li>
+                            <li class="@(@HttpContext.Current.Session["menu"].ToString() == "SERVICE" ? "active" : "")">
+                                <a href="@Url.Action("Service","Home")">
+                                    Services
+                                </a>
+                            </li>
+                            <li class="@(@HttpContext.Current.Session["menu"].ToString() == "CONTACT" ? "active" : "")">
+                                <a href="@Url.Action("Contact","Home")">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--=== End Header v5 ===-->
+        @RenderBody()
+        <div class="shop-subscribe">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 md-margin-bottom-20">
+                        <h4 style="color: white">&copy; @DateTime.Now.Year www.LuqmanTraders.com | All Rights Reserved</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/jquery/jquery-migrate.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script src="~/plugins/back-to-top.js"></script>
+    <script src="~/plugins/smoothScroll.js"></script>
+    <script src="~/plugins/jquery.parallax.js"></script>
+    <script src="~/plugins/owl-carousel/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/plugins/noUiSlider/jquery.nouislider.all.min.js"></script>
+    <script src="~/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- JS Customization -->
+    <script src="~/Scripts/js/custom.js"></script>
+    <!-- JS Page Level -->
+    <script src="~/Scripts/js/shop.app.js"></script>
+    <script src="~/Scripts/js/plugins/owl-carousel.js"></script>
+    <script src="~/Scripts/js/plugins/revolution-slider.js"></script>
+    <script src="~/Scripts/js/plugins/mouse-wheel.js"></script>
+    <script src="~/Scripts/js/plugins/style-switcher.js"></script>
+
+    @* About page *@
+    <script src="~/Scripts/js/plugins/master-slider.js"></script>
+    <script src="~/Scripts/js/forms/product-quantity.js"></script>
+    <script src="~/plugins/master-slider/masterslider/masterslider.min.js"></script>
+    <script src="~/plugins/master-slider/masterslider/jquery.easing.min.js"></script>
+
+    @* contact page *@
+    <script src="~/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+    <script src="~/Scripts/js/forms/page_registration.js"></script>
+    @* product page *@
+    <script src="~/plugins/fancybox/source/jquery.fancybox.js"></script>
+    <script src="~/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script src="~/plugins/block-ui/jquery.blockUI.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            App.init();
+            App.initScrollBar();
+            App.initParallaxBg();
+            MouseWheel.initMouseWheel();
+            //index page
+            OwlCarousel.initOwlCarousel();
+            RevolutionSlider.initRSfullWidth();
+            //about page
+            MasterSliderShowcase2.initMasterSliderShowcase2();
+            //contact page
+            Registration.initRegistration();
+        });
+    </script>
+</body>
+</html>
