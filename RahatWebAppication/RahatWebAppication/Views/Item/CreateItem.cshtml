@@ -11,7 +11,7 @@
                     if (TempData["Message"] != null)
                     {
                         <div class="alert alert-danger alert-dismissable">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>@TempData["Message"]
+                            <a href="javascript:;" class="close" data-dismiss="alert" aria-label="close">×</a>@TempData["Message"]
                         </div>
                     }
                 }
@@ -29,7 +29,7 @@
                             <div class="col-sm-12">
                                 <section>
                                     <label class="input">
-                                        @Html.TextBoxFor(m => m.Item.ImageUpload, new {@type = "file", @id = "file-demo", @class = "file form-control", @data_preview_file_type = "any"})
+                                        @Html.TextBoxFor(m => m.Item.ImageUpload, new {@type = "file", @id = "file-demo", @class = "file form-control white", @data_preview_file_type = "any"})
                                         @Html.ValidationMessageFor(m => m.Item.ImageUpload, "", new {@class = "color-red"})
                                         <br/>
                                     </label>

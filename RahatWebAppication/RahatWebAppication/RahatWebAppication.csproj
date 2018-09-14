@@ -181,6 +181,32 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\cube.gif" />
+    <Content Include="Images\foreign-products\blue_band_butter.png" />
+    <Content Include="Images\foreign-products\bold.jpg" />
+    <Content Include="Images\national-products\cool-cool-cotton-buds.jpg" />
+    <Content Include="Images\national-products\cool-cool.jpg" />
+    <Content Include="Images\foreign-products\foreign-airlines.jpg" />
+    <Content Include="Images\foreign-products\foreign-bakery.jpg" />
+    <Content Include="Images\foreign-products\foreign-body-spray.jpg" />
+    <Content Include="Images\foreign-products\foreign-cooking-oil.jpg" />
+    <Content Include="Images\foreign-products\foreign-creams.jpg" />
+    <Content Include="Images\foreign-products\foreign-hair-color.jpg" />
+    <Content Include="Images\foreign-products\foreign-noodles.jpg" />
+    <Content Include="Images\foreign-products\foreign-shampoo.jpg" />
+    <Content Include="Images\foreign-products\foreign-soap.jpg" />
+    <Content Include="Images\foreign-products\foreign-water.jpg" />
+    <Content Include="Images\foreign-products\harpic.jpg" />
+    <Content Include="Images\foreign-products\fair-handsome.jpg" />
+    <Content Include="Images\foreign-products\johnson-baby-products.PNG" />
+    <Content Include="Images\foreign-products\milkpack-cream.jpg" />
+    <Content Include="Images\foreign-products\milkpack.jpg" />
+    <Content Include="Images\foreign-products\nestle-yogurt.jpg" />
+    <Content Include="Images\foreign-products\shell.jpg" />
+    <Content Include="Images\foreign-products\gillete.jpg" />
+    <Content Include="Images\foreign-products\knorr-tomato-ketchup.png" />
+    <Content Include="Images\foreign-products\supreme-tea.jpg" />
+    <Content Include="Images\foreign-products\surf-excel.jpg" />
+    <Content Include="Images\foreign-products\vim.jpg" />
     <Content Include="Images\img\1.jpg" />
     <Content Include="Images\img\2.jpg" />
     <Content Include="Images\img\3.jpg" />
@@ -248,6 +274,7 @@
     <Content Include="Images\img\map.png" />
     <Content Include="Images\img\others\fb.png" />
     <Content Include="Images\img\patterns\gridtile.png" />
+    <Content Include="Images\img\question-mark.jpg" />
     <Content Include="Images\img\sponsors\01.png" />
     <Content Include="Images\img\sponsors\02.png" />
     <Content Include="Images\img\sponsors\03.png" />
@@ -268,6 +295,38 @@
     <Content Include="Images\img\thumb\License2.txt" />
     <Content Include="Images\img\thumb\License3.txt" />
     <Content Include="Images\img\twitter-bg.jpg" />
+    <Content Include="Images\national-products\adam-s-yoghurt.jpg" />
+    <Content Include="Images\national-products\bold.jpg" />
+    <Content Include="Images\national-products\dalda.jpg" />
+    <Content Include="Images\national-products\dawlance-products.jpg" />
+    <Content Include="Images\national-products\golden-pearl.jpeg" />
+    <Content Include="Images\national-products\haleeb-cream.jpg" />
+    <Content Include="Images\national-products\lemon-max.jpg" />
+    <Content Include="Images\national-products\national-bakery.jpg" />
+    <Content Include="Images\national-products\national-powder.jpg" />
+    <Content Include="Images\national-products\national-shampoo.jpg" />
+    <Content Include="Images\national-products\national-soap.jpg" />
+    <Content Include="Images\national-products\national-sound.jpg" />
+    <Content Include="Images\national-products\national-tea.jpg" />
+    <Content Include="Images\national-products\national-water.jpg" />
+    <Content Include="Images\national-products\nexton-baby-products.PNG" />
+    <Content Include="Images\national-products\olpers.jpg" />
+    <Content Include="Images\national-products\pso.png" />
+    <Content Include="Images\national-products\madicam-tooth-paste.jpg" />
+    <Content Include="Images\national-products\national-tomatto-ketchup.jpg" />
+    <Content Include="Images\national-products\nurpur-butter.jpg" />
+    <Content Include="Images\national-products\olivia-hair-color.jpg" />
+    <Content Include="Images\national-products\olivia-men.png" />
+    <Content Include="Images\national-products\olivia.jpg" />
+    <Content Include="Images\national-products\osaka.jpg" />
+    <Content Include="Images\national-products\PIA.jpg" />
+    <Content Include="Images\national-products\rose-petal.jpg" />
+    <Content Include="Images\national-products\Saeed-Ghani-brown-mehndi.png" />
+    <Content Include="Images\national-products\shan-shoop-chicken-noodles-gomart-pakistan.png" />
+    <Content Include="Images\national-products\shield-brush.jpg" />
+    <Content Include="Images\national-products\sufi-soap.jpg" />
+    <Content Include="Images\national-products\super-cleaner.jpg" />
+    <Content Include="Images\national-products\treet.jpg" />
     <Content Include="Images\team\ahsan.jpg" />
     <Content Include="Images\team\hunny.jpg" />
     <Content Include="Images\team\khalid.jpg" />
@@ -715,7 +774,9 @@
     <Content Include="plugins\sky-forms-pro\skyforms\js\jquery.validate.min.js" />
     <Content Include="plugins\sky-forms-pro\skyforms\js\sky-forms-ie8.js" />
     <Content Include="plugins\smoothScroll.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="plugins\bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="plugins\bootstrap\css\bootstrap-theme.min.css.map" />
@@ -892,6 +953,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Home\GetProduct.cshtml" />
+    <None Include="Views\Home\SocialWork.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -12,10 +12,15 @@ namespace RahatWebAppication.Repositories
         #endregion
 
         #region Public
+        public IEnumerable<ItemCategory> GetCategoriesUsedInItems()
+        {
+            return db.ItemCategories.Where(x => x.Items.Any());
+        }
+
         public IEnumerable<ItemCategory> GetAllCategories()
         {
-            return db.ItemCategories.Where(x => x.Items.Count != 0);
-        }
+            return db.ItemCategories;
+        } 
         #endregion
     }
 }

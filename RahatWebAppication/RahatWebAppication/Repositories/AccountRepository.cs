@@ -4,12 +4,12 @@ using RahatWebAppication.Models;
 
 namespace RahatWebAppication.Repositories
 {
-    public class AccountRepository:IAccountRepository
+    public class AccountRepository : IAccountRepository
     {
         private readonly RahatDBEntities db = new RahatDBEntities();
         public bool LoginUser(User user)
         {
-            if (db.Users.First(x => x.UserName.Equals(user.UserName) && x.Password.Equals(user.Password)) != null)
+            if (!string.IsNullOrEmpty(user.UserName) && db.Users.First(x => x.UserName.Equals(user.UserName) && x.Password.Equals(user.Password)) != null)
             {
                 return true;
             }

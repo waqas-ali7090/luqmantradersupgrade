@@ -69,6 +69,12 @@ namespace RahatWebAppication.Controllers
             return View();
         }
 
+        public ActionResult SocialWork()
+        {
+            System.Web.HttpContext.Current.Session["menu"] = "SOCIAL";
+            return View();
+        }
+
         [HttpPost]
         public ActionResult SendEmail(ItemViewModel model)
         {

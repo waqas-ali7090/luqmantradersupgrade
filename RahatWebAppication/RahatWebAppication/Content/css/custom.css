@@ -23,3 +23,12 @@
 .height-368 {
     height: 368px !important;
 }
+
+.a-as-button {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.white {
+    color: white !important;
+}
