@@ -183,6 +183,8 @@
     <Content Include="Images\cube.gif" />
     <Content Include="Images\foreign-products\blue_band_butter.png" />
     <Content Include="Images\foreign-products\bold.jpg" />
+    <Content Include="Images\foreign-products\canbebe-pampers.jpg" />
+    <Content Include="Images\foreign-products\leapard.jpg" />
     <Content Include="Images\national-products\cool-cool-cotton-buds.jpg" />
     <Content Include="Images\national-products\cool-cool.jpg" />
     <Content Include="Images\foreign-products\foreign-airlines.jpg" />
@@ -297,10 +299,12 @@
     <Content Include="Images\img\twitter-bg.jpg" />
     <Content Include="Images\national-products\adam-s-yoghurt.jpg" />
     <Content Include="Images\national-products\bold.jpg" />
+    <Content Include="Images\national-products\CRLF_Parts.jpg" />
     <Content Include="Images\national-products\dalda.jpg" />
     <Content Include="Images\national-products\dawlance-products.jpg" />
     <Content Include="Images\national-products\golden-pearl.jpeg" />
     <Content Include="Images\national-products\haleeb-cream.jpg" />
+    <Content Include="Images\national-products\iil.jpg" />
     <Content Include="Images\national-products\lemon-max.jpg" />
     <Content Include="Images\national-products\national-bakery.jpg" />
     <Content Include="Images\national-products\national-powder.jpg" />
@@ -311,6 +315,9 @@
     <Content Include="Images\national-products\national-water.jpg" />
     <Content Include="Images\national-products\nexton-baby-products.PNG" />
     <Content Include="Images\national-products\olpers.jpg" />
+    <Content Include="Images\national-products\pak-steel.PNG" />
+    <Content Include="Images\national-products\pakistan-post.jpg" />
+    <Content Include="Images\national-products\polac.jpg" />
     <Content Include="Images\national-products\pso.png" />
     <Content Include="Images\national-products\madicam-tooth-paste.jpg" />
     <Content Include="Images\national-products\national-tomatto-ketchup.jpg" />
@@ -324,6 +331,7 @@
     <Content Include="Images\national-products\Saeed-Ghani-brown-mehndi.png" />
     <Content Include="Images\national-products\shan-shoop-chicken-noodles-gomart-pakistan.png" />
     <Content Include="Images\national-products\shield-brush.jpg" />
+    <Content Include="Images\national-products\shield-diapers.jpeg" />
     <Content Include="Images\national-products\sufi-soap.jpg" />
     <Content Include="Images\national-products\super-cleaner.jpg" />
     <Content Include="Images\national-products\treet.jpg" />
