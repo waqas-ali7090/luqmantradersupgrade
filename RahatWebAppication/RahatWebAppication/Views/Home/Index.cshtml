@@ -31,7 +31,7 @@
                      data-endeasing="Power1.easeIn"
                      data-captionhidden="off"
                      style="z-index: 6">
-                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Shop Now</a>
+                    <a href="javascript:;" onclick="scrollToBottom()" class="btn-u btn-brd btn-brd-hover btn-u-light">View Now</a>
                 </div>
             </li>
             <!-- END SLIDE -->
@@ -48,7 +48,7 @@
                      data-easing="Back.easeInOut"
                      data-endeasing="Power1.easeIn"
                      data-endspeed="300">
-                    Latest <strong>Fashion</strong> Trends
+                    <strong>Restaurant</strong> Specialist
                 </div>
                 <!-- LAYER -->
                 <div class="tp-caption revolution-ch4 sft"
@@ -62,8 +62,7 @@
                      data-endeasing="Power1.easeIn"
                      data-captionhidden="off"
                      style="z-index: 6">
-                    Cras non dui et quam auctor pretium.<br>
-                    Aenean enim tortr, tempus et iteus m
+                    We mainly manufacture restaurant products
                 </div>
                 <!-- LAYER -->
                 <div class="tp-caption sft"
@@ -77,7 +76,7 @@
                      data-endeasing="Power1.easeIn"
                      data-captionhidden="off"
                      style="z-index: 6">
-                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Shop Now</a>
+                    <a href="@Url.Action("Product", "Home")" class="btn-u btn-brd btn-brd-hover btn-u-light">See This Awesome</a>
                 </div>
             </li>
             <!-- END SLIDE -->
@@ -94,7 +93,7 @@
                      data-easing="Back.easeInOut"
                      data-endeasing="Power1.easeIn"
                      data-endspeed="300">
-                    <strong>Luxury</strong> Watches
+                    <strong>Luxury</strong> Furniture
                 </div>
                 <!-- LAYER -->
                 <div class="tp-caption revolution-ch4 sft"
@@ -108,8 +107,7 @@
                      data-endeasing="Power1.easeIn"
                      data-captionhidden="off"
                      style="z-index: 6">
-                    lectus. Cras non dui et quam auctor.<br>
-                    Aenean enim tortor, tempus et im
+                    
                 </div>
                 <!-- LAYER -->
                 <div class="tp-caption sft"
@@ -123,7 +121,7 @@
                      data-endeasing="Power1.easeIn"
                      data-captionhidden="off"
                      style="z-index: 6">
-                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Shop Now</a>
+                    <a href="@Url.Action("Product", "Home")" class="btn-u btn-brd btn-brd-hover btn-u-light">View More</a>
                 </div>
             </li>
             <!-- END SLIDE -->
@@ -140,7 +138,7 @@
                      data-easing="Back.easeInOut"
                      data-endeasing="Power1.easeIn"
                      data-endspeed="300">
-                    Girl's Accesories
+                    Restaurant Specialist
                 </div>
                 <!-- LAYER -->
                 <div class="tp-caption revolution-ch2 sft"
@@ -168,8 +166,8 @@
                      data-endeasing="Power1.easeIn"
                      data-captionhidden="off"
                      style="z-index: 6">
-                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">View More</a>
-                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Shop Now</a>
+                    <a href="@Url.Action("Product", "Home")" class="btn-u btn-brd btn-brd-hover btn-u-light">View More</a>
+                    <a href="javascript:;" onclick="scrollToBottom()" class="btn-u btn-brd btn-brd-hover btn-u-light">Latest Products</a>
                 </div>
             </li>
             <!-- END SLIDE -->
@@ -186,7 +184,7 @@
                      data-easing="Back.easeInOut"
                      data-endeasing="Power1.easeIn"
                      data-endspeed="300">
-                    <strong>Jeans</strong> Collection
+                    We Are <strong>Professional</strong> 
                 </div>
                 <!-- LAYER -->
                 <div class="tp-caption revolution-ch4 sft"
@@ -200,8 +198,7 @@
                      data-endeasing="Power1.easeIn"
                      data-captionhidden="off"
                      style="z-index: 6">
-                    Cras non dui et quam auctor pretium.<br>
-                    Aenean enim tortr, tempus et iteus m
+                    To be the world's best manufacturer & <br/>seller of steel furniture.
                 </div>
                 <!-- LAYER -->
                 <div class="tp-caption sft"
@@ -215,7 +212,7 @@
                      data-endeasing="Power1.easeIn"
                      data-captionhidden="off"
                      style="z-index: 6">
-                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Shop Now</a>
+                    <a href="@Url.Action("Contact", "Home")" class="btn-u btn-brd btn-brd-hover btn-u-light">Contact Us</a>
                 </div>
             </li>
             <!-- END SLIDE -->
@@ -229,7 +226,7 @@
     </div>
     <div class="row illustration-v2">
         @foreach (var item in Model)
-            {
+        {
             <div class="col-md-3 col-sm-6 md-margin-bottom-30">
                 <div class="product-img">
                     <a href="@Url.Content(item.Photo)" class="fancybox" onclick="makeImageFancy()">
@@ -256,3 +253,11 @@
         }
     </div>
 </div>
+@section pageLevelScripts{
+    <script>
+        function scrollToBottom() {
+            //window.scrollTo(0, document.body.scrollHeight);
+            $('html,body').animate({ scrollTop: document.body.scrollHeight }, "slow");
+        }
+    </script>
+}

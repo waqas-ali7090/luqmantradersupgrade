@@ -18,14 +18,14 @@
                             <ul class="list-unstyled checkbox-list">
                                 @foreach (var category in Model.ItemCategories)
                                 {
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" id="checkbox_@category.Id" onchange="searchItemByCategory(@category.Id)" />
-                                        <i></i>
-                                        @category.Name
-                                        <small><a href="#">(@category.Items.Count())</a></small>
-                                    </label>
-                                </li>
+                                    <li>
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="checkbox" id="checkbox_@category.Id" onchange="searchItemByCategory(@category.Id)" />
+                                            <i></i>
+                                            @category.Name
+                                            <small><a href="#">(@category.Items.Count)</a></small>
+                                        </label>
+                                    </li>
                                 }
                             </ul>
                         </div>
@@ -56,7 +56,7 @@
 
             <button type="button" class="btn-u btn-brd btn-brd-hover btn-u-lg btn-u-sea-shop btn-block">Reset</button>
         </div>
-        @if (Model.Items != null && Model.Items.Count() != 0)
+        @if (Model.Items != null && Model.Items.Any())
         {
             <div class="col-md-9">
                 <div class="row margin-bottom-5">

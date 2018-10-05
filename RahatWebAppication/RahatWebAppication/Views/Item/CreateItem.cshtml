@@ -40,7 +40,7 @@
                             <div class="col-sm-6">
                                 <section>
                                     <label class="input">
-                                        @Html.TextBoxFor(m => m.Item.Name, new {@class = "form-control"})
+                                        @Html.TextBoxFor(m => m.Item.Name, new {@class = "form-control", placeholder="Item Name"})
                                         @Html.ValidationMessageFor(m => m.Item.Name, "", new {@class = "color-red"})
                                     </label>
                                 </section>
@@ -48,7 +48,7 @@
                             <div class="col-sm-6">
                                 <section>
                                     <label class="input">
-                                        @Html.TextBoxFor(m => m.Item.Price, new {@class = "form-control"})
+                                        @Html.TextBoxFor(m => m.Item.Price, new {@class = "form-control", placeholder = "Item Price", title = "Item Price", value="" })
                                         @Html.ValidationMessageFor(m => m.Item.Price, "", new {@class = "color-red"})
                                     </label>
                                 </section>
@@ -66,7 +66,7 @@
                             <div class="col-sm-6">
                                 <section>
                                     <label class="input">
-                                        @Html.TextBoxFor(m => m.Item.Discount, new {@class = "form-control"})
+                                        @Html.TextBoxFor(m => m.Item.Discount, new {@class = "form-control", placeholder="Any discount"})
                                     </label>
                                 </section>
                             </div>
@@ -76,7 +76,7 @@
                             <div class="col-sm-12">
                                 <section>
                                     <label class="input">
-                                        @Html.TextAreaFor(m => m.Item.Description, new {@class = "form-control"})
+                                        @Html.TextAreaFor(m => m.Item.Description, new {@class = "form-control", placeholder="Other details"})
                                         @Html.ValidationMessageFor(m => m.Item.Description, "", new {@class = "color-red"})
                                     </label>
                                 </section>

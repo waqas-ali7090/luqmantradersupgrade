@@ -89,4 +89,5 @@
         itemSearchRequest.PageSize = selected.value;
         searchItemByCategory(null);
     }
+
 })();
