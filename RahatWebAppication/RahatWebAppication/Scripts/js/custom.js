@@ -2,9 +2,17 @@
 
     //block screen on ajax call
     $(document).ajaxStart(function () {
-        $.blockUI({ message: '<h1 style="color:white">Loading..</h1>' });
+        $.blockUI({ message: '<i style="color:#18ba9b; font-size: 85px" class="fa fa-certificate fa-spin"></i>' });
     }).ajaxStop(function () {
         $.unblockUI();
+    });
+
+    $(window).on("load", function () {
+        $.unblockUI();
+    });
+
+    $(window).on("beforeunload", function () {
+        $.blockUI({ message: '<i style="color:#18ba9b; font-size: 85px" class="fa fa-certificate fa-spin"></i>' });
     });
 
     //search from items table
