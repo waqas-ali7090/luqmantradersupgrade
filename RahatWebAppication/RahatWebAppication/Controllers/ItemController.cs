@@ -1,6 +1,8 @@
-﻿using System.Web;
+﻿using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using RahatWebAppication.Interfaces;
+using RahatWebAppication.ModelMappers;
 using RahatWebAppication.Models;
 using RahatWebAppication.ViewModels;
 
@@ -27,7 +29,7 @@ namespace RahatWebAppication.Controllers
         {
             var model = new ItemViewModel
             {
-                Items = itemRepository.GetAllItems()
+                Items = itemRepository.GetAllItems().Select(x=>x.MapFromServerToClient())
             };
             return View(model);
         }
@@ -56,7 +58,7 @@ namespace RahatWebAppication.Controllers
                     model.Item.Photo = model.Item.ImageUpload.FileName;
                     file.SaveAs(Server.MapPath(@"~\ItemImage\" + file.FileName));
                     model.Item.Photo = "~/ItemImage/" + file.FileName;
-                    if (itemRepository.AddItem(model.Item))
+                    if (itemRepository.AddItem(model.Item.MapFromClientToServer()))
                     {
                         TempData["Message"] = "Item saved successfully.";
                     }
@@ -84,7 +86,7 @@ namespace RahatWebAppication.Controllers
             ItemViewModel model = new ItemViewModel
             {
                 ItemCategories = itemCategoryRepository.GetAllCategories(),
-                Item = itemRepository.FindItemById(id)
+                Item = itemRepository.FindItemById(id).MapFromServerToClient()
             };
             return View(model);
         }
@@ -101,7 +103,7 @@ namespace RahatWebAppication.Controllers
             }
             try
             {
-                if (itemRepository.UpdateItem(model.Item))
+                if (itemRepository.UpdateItem(model.Item.MapFromClientToServer()))
                 {
                     TempData["Message"] = "Item updated successfully.";
                 }

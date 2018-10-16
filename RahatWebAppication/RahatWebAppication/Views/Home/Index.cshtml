@@ -229,7 +229,7 @@
         {
             <div class="col-md-3 col-sm-6 md-margin-bottom-30">
                 <div class="product-img">
-                    <a href="@Url.Content(item.Photo)" class="fancybox" onclick="makeImageFancy()">
+                    <a href="@Url.Content(item.Photo)" class="fancy" title="@item.Name" rel="product">
                         <img class="full-width img-responsive" src="@Url.Content(item.Photo)" alt="">
                     </a>
                     <a class="product-review">@item.Name</a>

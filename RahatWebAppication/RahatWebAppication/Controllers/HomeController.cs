@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Mail;
 using System.Web.Mvc;
 using RahatWebAppication.Interfaces;
+using RahatWebAppication.ModelMappers;
 using RahatWebAppication.ViewModels;
 
 namespace RahatWebAppication.Controllers
@@ -38,7 +38,7 @@ namespace RahatWebAppication.Controllers
             System.Web.HttpContext.Current.Session["menu"] = "PRODUCT";
             var model = new ItemViewModel
             {
-                Items = itemRepository.GetAllItems().ToList(),
+                Items = itemRepository.GetAllItems().Select(x => x.MapFromServerToClient()).ToList(),
                 ItemCategories = itemCategoryRepository.GetAllCategories().ToList()
             };
             return View(model);
@@ -48,7 +48,8 @@ namespace RahatWebAppication.Controllers
         public ActionResult GetProduct(ItemSearchRequest itemSearchRequest)
         {
             var items = itemRepository.SearchItems(itemSearchRequest);
-            return View(items);
+            var model = new ItemViewModel { Items = items };
+            return PartialView("_GetProduct", model);
         }
 
         public ActionResult Service()

@@ -8,10 +8,10 @@ namespace RahatWebAppication.ViewModels
         public ItemViewModel()
         {
             ItemCategories = new List<ItemCategory>();
-            Item = new Item();
+            Item = new ItemModel();
         }
-        public Item Item { get; set; }
-        public IEnumerable<Item> Items { get; set; }
+        public ItemModel Item { get; set; }
+        public IEnumerable<ItemModel> Items { get; set; }
         public IEnumerable<ItemCategory> ItemCategories { get; set; }
         public MailViewModel MailModel { get; set; }
         public User User { get; set; }

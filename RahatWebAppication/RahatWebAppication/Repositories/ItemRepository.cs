@@ -53,9 +53,7 @@ namespace RahatWebAppication.Repositories
             var items =
                 db.Items.Where(
                     x =>
-                        (itemSearchRequest.CategoryIds.Count == 0 || itemSearchRequest.CategoryIds.Contains(x.CategoryId)) &&
-                        (x.Price >= itemSearchRequest.PriceRange.Lower &&
-                                            x.Price <= itemSearchRequest.PriceRange.Upper))
+                        (itemSearchRequest.CategoryIds.Count == 0 || itemSearchRequest.CategoryIds.Contains(x.CategoryId)))
                     .Select(
                         x =>
                             new ItemModel

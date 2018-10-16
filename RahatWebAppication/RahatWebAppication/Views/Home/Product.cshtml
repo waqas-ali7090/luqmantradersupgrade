@@ -23,7 +23,7 @@
                                             <input type="checkbox" name="checkbox" id="checkbox_@category.Id" onchange="searchItemByCategory(@category.Id)" />
                                             <i></i>
                                             @category.Name
-                                            <small><a href="#">(@category.Items.Count)</a></small>
+                                            <small><a href="javascript:;">(@category.Items.Count)</a></small>
                                         </label>
                                     </li>
                                 }
@@ -32,43 +32,34 @@
                     </div>
                 </div>
             </div>
-            <div class="panel-group" id="accordion-v4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-v4" href="#collapseFour">
-                                Price
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                        </h2>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="slider-snap"></div>
-                            <p class="slider-snap-text">
-                                <span class="slider-snap-value-lower"></span>
-                                <span class="slider-snap-value-upper"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button type="button" class="btn-u btn-brd btn-brd-hover btn-u-lg btn-u-sea-shop btn-block">Reset</button>
         </div>
         @if (Model.Items != null && Model.Items.Any())
         {
             <div class="col-md-9">
                 <div class="row margin-bottom-5">
-                    <div class="col-sm-6 result-category">
-                        <h2>Total Products</h2>
+                    <div class="col-sm-4 result-category">
+                        <h2>Products</h2>
                         <small class="shop-bg-red badge-results">@Model.Items.Count() Results</small>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-8">
                         <ul class="list-inline clear-both">
                             <li class="grid-list-icons">
-                                <a><i class="fa fa-th-list"></i></a>
-                                @*<a href="shop-ui-filter-grid.html"><i class="fa fa-th"></i></a>*@
+                                <a href="javascript:;"><i class="fa fa-th-list"></i></a>
+                                <a href="javascript:;"><i class="fa fa-th"></i></a>
+                            </li>
+                            <li class="sort-list-btn">
+                                <h3>Sort By :</h3>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        Popularity <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="javascript:;">All</a></li>
+                                        <li><a href="javascript:;">Best Sales</a></li>
+                                        <li><a href="javascript:;">Top Last Week Sales</a></li>
+                                        <li><a href="javascript:;">New Arrived</a></li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="sort-list-btn">
                                 <h3>Show :</h3>
@@ -84,66 +75,65 @@
                         </ul>
                     </div>
                 </div>
-                <div class="filter-results">
-                    <div id="displayProducts">
-                        @foreach (var item in Model.Items)
-                        {
-                            <div class="list-product-description product-description-brd margin-bottom-30">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <a href="@Url.Content(item.Photo)" class="fancybox" onclick="makeImageFancy()">
-                                            <img class="img-responsive sm-margin-bottom-20" src="@Url.Content(item.Photo)" alt="">
+
+                <div class="filter-results" id="displayProducts">
+                    @for (int i = 0; i <= Model.Items.Count() / 3; i++)
+                    {
+                        <div class="row illustration-v2 margin-bottom-30">
+                            @foreach (var item in Model.Items.Skip(i * 3).Take(3))
+                            {
+                                <div class="col-md-4">
+                                    <div class="product-img product-img-brd">
+                                        <a href="@Url.Content(item.Photo)" class="fancy" title="@item.Name" rel="product">
+                                            <img class="full-width img-responsive" src="@Url.Content(item.Photo)" style="height: 260px">
                                         </a>
+                                        <a class="product-review" href="javascript:;">@item.Name</a>
+                                        @if (item.IsLatest)
+                                        {
+                                            <div class="shop-rgba-dark-green rgba-banner">New</div>
+                                        }
                                     </div>
-                                    <div class="col-sm-8 product-description">
+                                    <div class="product-description product-description-brd margin-bottom-30">
                                         <div class="overflow-h margin-bottom-5">
-                                            <ul class="list-inline overflow-h">
-                                                <li><h4 class="title-price"><a href="">@item.Name</a></h4></li>
-                                                <li><span class="gender text-uppercase">@item.ItemCategory.Name</span></li>
-                                                <li class="pull-right">
-                                                    <ul class="list-inline product-ratings">
-                                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                                        <li><i class="rating fa fa-star"></i></li>
-                                                        <li><i class="rating fa fa-star"></i></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <div class="margin-bottom-10">
-                                                <span class="title-price margin-right-10">Rs: @Convert.ToInt32(item.Price)</span>
-                                                @if (item.PreviousPrice != 0)
+                                            <div class="pull-left">
+                                                <h4 class="title-price"><a href="javascript:;">Price</a></h4>
+                                                @if (item.PreviousPrice > 0)
                                                 {
-                                                    <span class="title-price line-through">Rs: @Convert.ToInt32(item.PreviousPrice)</span>
+                                                    <span class="gender text-uppercase">Previous Price</span>
                                                 }
+                                                <span class="gender">Category</span>
                                             </div>
-                                            <p class="margin-bottom-20">@item.Description</p>
-                                            @*<ul class="list-inline add-to-wishlist margin-bottom-20">
-                                                    <li class="wishlist-in">
-                                                        <i class="fa fa-heart"></i>
-                                                        <a href="#">Add to Wishlist</a>
-                                                    </li>
-                                                    <li class="compare-in">
-                                                        <i class="fa fa-exchange"></i>
-                                                        <a href="#">Add to Compare</a>
-                                                    </li>
-                                                </ul>
-                                                <button type="button" class="btn-u btn-u-sea-shop">Add to Cart</button>*@
+                                            <div class="product-price">
+                                                <span class="title-price">@item.Price</span>
+                                                @if (item.PreviousPrice > 0)
+                                                {
+                                                    <span class="title-price line-through">@item.PreviousPrice</span>
+                                                }
+                                                <span>@item.ItemCategoryName</span>
+                                            </div>
                                         </div>
+                                        <ul class="list-inline product-ratings">
+                                            <li><i class="rating-selected fa fa-star"></i></li>
+                                            <li><i class="rating-selected fa fa-star"></i></li>
+                                            <li><i class="rating-selected fa fa-star"></i></li>
+                                            <li><i class="rating fa fa-star"></i></li>
+                                            <li><i class="rating fa fa-star"></i></li>
+                                            <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="javascript:;"><i class="fa fa-heart"></i></a></li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-                        }
-                    </div>
+                            }
+                        </div>
+                    }
                 </div>
 
                 <div class="text-center">
                     <ul class="pagination pagination-v2">
-                        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-left"></i></a></li>
+                        <li><a href="javascript:;">1</a></li>
+                        <li class="active"><a href="javascript:;">2</a></li>
+                        <li><a href="javascript:;">3</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i></a></li>
                     </ul>
                 </div>
             </div>

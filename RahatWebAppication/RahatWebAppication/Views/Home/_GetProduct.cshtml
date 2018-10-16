@@ -1,0 +1,50 @@
+﻿@model RahatWebAppication.ViewModels.ItemViewModel
+
+@for (int i = 0; i <= Model.Items.Count() / 3; i++)
+{
+    <div class="row illustration-v2 margin-bottom-30">
+        @foreach (var item in Model.Items.Skip(i * 3).Take(3))
+        {
+            <div class="col-md-4">
+                <div class="product-img product-img-brd">
+                    <a href="@Url.Content(item.Photo)" class="fancy" title="@item.Name" rel="product">
+                        <img class="full-width img-responsive" src="@Url.Content(item.Photo)" style="height: 260px">
+                    </a>
+                    <a class="product-review" href="javascript:;">@item.Name</a>
+                    @if (item.IsLatest)
+                    {
+                        <div class="shop-rgba-dark-green rgba-banner">New</div>
+                    }
+                </div>
+                <div class="product-description product-description-brd margin-bottom-30">
+                    <div class="overflow-h margin-bottom-5">
+                        <div class="pull-left">
+                            <h4 class="title-price"><a href="javascript:;">Price</a></h4>
+                            @if (item.PreviousPrice > 0)
+                            {
+                                <span class="gender text-uppercase">Previous Price</span>
+                            }
+                            <span class="gender">Category</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="title-price">@item.Price</span>
+                            @if (item.PreviousPrice > 0)
+                            {
+                                <span class="title-price line-through">@item.PreviousPrice</span>
+                            }
+                            <span>@item.ItemCategoryName</span>
+                        </div>
+                    </div>
+                    <ul class="list-inline product-ratings">
+                        <li><i class="rating-selected fa fa-star"></i></li>
+                        <li><i class="rating-selected fa fa-star"></i></li>
+                        <li><i class="rating-selected fa fa-star"></i></li>
+                        <li><i class="rating fa fa-star"></i></li>
+                        <li><i class="rating fa fa-star"></i></li>
+                        <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+}

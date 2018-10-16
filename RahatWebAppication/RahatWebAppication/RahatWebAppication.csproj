@@ -883,6 +883,7 @@
     <Compile Include="Interfaces\IAccountRepository.cs" />
     <Compile Include="Interfaces\IItemCategoryRepository.cs" />
     <Compile Include="Interfaces\IItemRepository.cs" />
+    <Compile Include="ModelMappers\ProductMapper.cs" />
     <Compile Include="Models\Item.cs">
       <DependentUpon>RahatDB.tt</DependentUpon>
     </Compile>
@@ -960,8 +961,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Home\GetProduct.cshtml" />
     <None Include="Views\Home\SocialWork.cshtml" />
+    <Content Include="Views\Home\_GetProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
