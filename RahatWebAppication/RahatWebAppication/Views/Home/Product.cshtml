@@ -20,7 +20,7 @@
                                 {
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="checkbox" id="checkbox_@category.Id" onchange="searchItemByCategory(@category.Id)" />
+                                            <input type="checkbox" name="checkbox" id="checkbox_@category.Id" onchange="searchItemByCategory(@category.Id, @category.Items.Count)" />
                                             <i></i>
                                             @category.Name
                                             <small><a href="javascript:;">(@category.Items.Count)</a></small>
@@ -64,7 +64,7 @@
                             <li class="sort-list-btn">
                                 <h3>Show :</h3>
                                 <div class="btn-group">
-                                    <select class="form-control" onchange="getProductsOnSelect(this)">
+                                    <select class="form-control" onchange="searchItemByCategory(null, this.value)">
                                         <option value="10">10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>

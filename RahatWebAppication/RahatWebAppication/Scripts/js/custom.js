@@ -18,9 +18,9 @@
         }).hide();
     });
 
-    //search item by price    $(".slider-snap-value-lower, .slider-snap-value-upper").on('DOMSubtreeModified', function () {
-        searchItemByCategory(null);
-    });
+    //search item by price    //$(".slider-snap-value-lower, .slider-snap-value-upper").on('DOMSubtreeModified', function () {
+    //    searchItemByCategory(null);
+    //});
 
     //search item on scroll
     //$(window).scroll(function () {
@@ -42,7 +42,7 @@ var itemSearchRequest = {
     PageSize: 9
 };
 var priceRange = {};
-function searchItemByCategory(id) {
+function searchItemByCategory(id, pageSize) {
     if (id) {
         isScrolled = true;
         if ($('#checkbox_' + id)[0].checked)
@@ -55,6 +55,7 @@ function searchItemByCategory(id) {
     //priceRange = {
     //    lower: parseInt(lower),    //    upper: parseInt(upper)
     //}    itemSearchRequest.CategoryIds = idsArray;
+    itemSearchRequest.PageSize = pageSize;
     //itemSearchRequest.PriceRange = priceRange;
     $.ajax({
         type: "POST",
@@ -74,12 +75,6 @@ function searchItemByCategory(id) {
             alert('Error!');
         }
     });
-}
-
-//get selected number of items
-function getProductsOnSelect(selected) {
-    itemSearchRequest.PageSize = selected.value;
-    searchItemByCategory(null);
 }
 
 $(document).ready(function () {
