@@ -20,7 +20,7 @@
                                 {
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="checkbox" id="checkbox_@category.Id" onchange="searchItemByCategory(@category.Id, @category.Items.Count)" />
+                                            <input type="checkbox" name="checkbox" id="checkbox_@category.Id" data-id="@category.Id" data-pageSize="@category.Items.Count" onchange="searchItemByCategory(@category.Id, @category.Items.Count)" />
                                             <i></i>
                                             @category.Name
                                             <small><a href="javascript:;">(@category.Items.Count)</a></small>

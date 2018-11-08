@@ -185,6 +185,14 @@
     <Content Include="Images\foreign-products\bold.jpg" />
     <Content Include="Images\foreign-products\canbebe-pampers.jpg" />
     <Content Include="Images\foreign-products\leapard.jpg" />
+    <Content Include="Images\img\1.jpg" />
+    <Content Include="Images\img\2.jpg" />
+    <Content Include="Images\img\3.jpg" />
+    <Content Include="Images\img\4.jpg" />
+    <Content Include="Images\img\45593381_295873461028507_4006573285889277952_n.jpg" />
+    <Content Include="Images\img\5.jpg" />
+    <Content Include="Images\img\6.jpg" />
+    <Content Include="Images\img\7.jpg" />
     <Content Include="Images\national-products\cool-cool-cotton-buds.jpg" />
     <Content Include="Images\national-products\cool-cool.jpg" />
     <Content Include="Images\foreign-products\foreign-airlines.jpg" />
@@ -209,11 +217,6 @@
     <Content Include="Images\foreign-products\supreme-tea.jpg" />
     <Content Include="Images\foreign-products\surf-excel.jpg" />
     <Content Include="Images\foreign-products\vim.jpg" />
-    <Content Include="Images\img\1.jpg" />
-    <Content Include="Images\img\2.jpg" />
-    <Content Include="Images\img\3.jpg" />
-    <Content Include="Images\img\4.jpg" />
-    <Content Include="Images\img\5.jpg" />
     <Content Include="Images\img\bg\img2.jpg" />
     <Content Include="Images\img\bg\img20.jpg" />
     <Content Include="Images\img\bg\img3.jpg" />

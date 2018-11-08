@@ -43,7 +43,7 @@
 })();
 
 //search item by category
-var idsArray = [];
+var selectedCategories = [];
 var isScrolled = false;
 var itemSearchRequest = {
     PageNo: 1,
@@ -52,18 +52,31 @@ var itemSearchRequest = {
 var priceRange = {};
 function searchItemByCategory(id, pageSize) {
     if (id) {
-        isScrolled = true;
-        if ($('#checkbox_' + id)[0].checked)
-            idsArray.push(id);
-        else
-            idsArray.pop(id);
+        var itemCount = 0;
+        var totalItems = 0;
+        selectedCategories = [];
+        var categories = $("input[id^='checkbox_']").length;
+        $("input[id^='checkbox_']").each(function (i, el) {
+            totalItems += $(el).data('pagesize');
+            if (el.checked) {
+                selectedCategories.push($(el).data('id'));
+                itemCount += $(el).data('pagesize');
+                categories -= 1;
+            }
+        });
+        
+        if (categories === $("input[id^='checkbox_']").length) {
+            itemCount = totalItems;
+        }
+        itemSearchRequest.PageSize = itemCount;
+    } else {
+        itemSearchRequest.PageSize = pageSize;
     }
     //var lower = $('.slider-snap-value-lower')[0].innerText;
     //var upper = $('.slider-snap-value-upper')[0].innerText;
     //priceRange = {
     //    lower: parseInt(lower),    //    upper: parseInt(upper)
-    //}    itemSearchRequest.CategoryIds = idsArray;
-    itemSearchRequest.PageSize = pageSize;
+    //}    itemSearchRequest.CategoryIds = selectedCategories;
     //itemSearchRequest.PriceRange = priceRange;
     $.ajax({
         type: "POST",
@@ -72,8 +85,8 @@ function searchItemByCategory(id, pageSize) {
         data: JSON.stringify(itemSearchRequest),
         success: function (response) {
             //if (!isScrolled) {
-                $('#displayProducts').empty();
-                $('#displayProducts').append(response);
+            $('#displayProducts').empty();
+            $('#displayProducts').append(response);
             //} else {
             //    $('#displayProducts').append(response);
             //    isScrolled = false;
